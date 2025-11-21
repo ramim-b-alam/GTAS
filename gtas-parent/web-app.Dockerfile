@@ -1,4 +1,4 @@
-FROM adoptopenjdk/maven-openjdk8 as build-stage
+FROM --platform=linux/amd64 adoptopenjdk/maven-openjdk8 as build-stage
 
 RUN apt-get -y update && apt-get -y install nodejs git dos2unix
 
@@ -6,7 +6,7 @@ COPY ./ /gtas-parent/
 COPY ./docker-resources/hibernate.properties /gtas-parent/gtas-commons/src/main/resources/hibernate.properties
 
 WORKDIR /gtas-parent
-RUN mvn clean install -Dmaven.test.skip=true
+RUN mvn clean install -Dmaven.test.skip=true -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.validity.dates=true
 RUN cd / && rm -rf /gtas-parent
 
 RUN mkdir /temp-dos
@@ -14,7 +14,7 @@ COPY ./docker-resources/setenv.sh /temp-dos/setenv.sh
 RUN dos2unix /temp-dos/setenv.sh
 
 
-FROM tomcat:9-jdk8-adoptopenjdk-openj9 as tomcat
+FROM --platform=linux/amd64 tomcat:9-jdk8-adoptopenjdk-openj9 as tomcat
 
 RUN mkdir -p /usr/local/tomcat/webapps/gtas /logs/apache-tomcat-web /logs/apache-tomcat /temp
 

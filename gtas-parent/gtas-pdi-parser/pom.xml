@@ -20,13 +20,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-	
-	<profiles>
-		<profile>
-			<id>gtas-pdi-parser-with-dependencies</id>
-			<activation><activeByDefault>false</activeByDefault></activation>
-			
-			<build>
+    
+    <profiles>
+        <profile>
+            <id>gtas-pdi-parser-with-dependencies</id>
+            <activation><activeByDefault>false</activeByDefault></activation>
+            
+            <build>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -55,8 +55,8 @@
             </plugin>
         </plugins>
     </build>
-		</profile>
-	</profiles>
+        </profile>
+    </profiles>
     
 </project>
 

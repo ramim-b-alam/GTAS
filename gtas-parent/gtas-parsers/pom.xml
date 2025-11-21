@@ -13,24 +13,24 @@
     <packaging>jar</packaging>
     <name>GTAS Parsers</name>
     <dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
-		<dependency>
+        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
         <dependency>
             <groupId>gov.gtas</groupId>
             <artifactId>gtas-commons</artifactId>
-			<version>${gtas.version}</version>
+            <version>${gtas.version}</version>
         </dependency>
     </dependencies>
     <properties>
@@ -40,44 +40,44 @@
         <commons-lang3.version>3.8</commons-lang3.version>
         <commons-math3.version>3.6.1</commons-math3.version>
         <commons-io.version>2.6</commons-io.version>
-		<gtas.version>0.1-SNAPSHOT</gtas.version>
-		<commons-collections4.version>4.2</commons-collections4.version>
+        <gtas.version>0.1-SNAPSHOT</gtas.version>
+        <commons-collections4.version>4.2</commons-collections4.version>
     </properties>
-	
-	<profiles>
-		<profile>
-			<id>gtas-parser-with-dependencies</id>
-			<activation><activeByDefault>false</activeByDefault></activation>
-			    <build>
-			        <plugins>
-			            <plugin>
-			                <artifactId>maven-assembly-plugin</artifactId>
-			                <version>3.1.0</version>
-			                <executions>
-			                    <execution>
-			                        <id>build-gtas-parser</id>
-			                        <configuration>
-			                            <appendAssemblyId>true</appendAssemblyId>
-			                            <archive>
-			                                <manifest>
-			                                    <mainClass>gov.gtas.parsers.redisson.RedisLoaderMain</mainClass>
-			                                </manifest>
-			                            </archive>
-			                            <descriptorRefs>
-			                                <descriptorRef>jar-with-dependencies</descriptorRef>
-			                            </descriptorRefs>
-			                            <finalName>gtas-parsers</finalName>
-			                        </configuration>
-			                        <phase>package</phase>
-			                        <goals>
-			                            <goal>single</goal>
-			                        </goals>
-			                    </execution>
-			                </executions>
-			            </plugin>
-			        </plugins>
-			    </build>
-		</profile>
-	</profiles>
+    
+    <profiles>
+        <profile>
+            <id>gtas-parser-with-dependencies</id>
+            <activation><activeByDefault>false</activeByDefault></activation>
+                <build>
+                    <plugins>
+                        <plugin>
+                            <artifactId>maven-assembly-plugin</artifactId>
+                            <version>3.1.0</version>
+                            <executions>
+                                <execution>
+                                    <id>build-gtas-parser</id>
+                                    <configuration>
+                                        <appendAssemblyId>true</appendAssemblyId>
+                                        <archive>
+                                            <manifest>
+                                                <mainClass>gov.gtas.parsers.redisson.RedisLoaderMain</mainClass>
+                                            </manifest>
+                                        </archive>
+                                        <descriptorRefs>
+                                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                                        </descriptorRefs>
+                                        <finalName>gtas-parsers</finalName>
+                                    </configuration>
+                                    <phase>package</phase>
+                                    <goals>
+                                        <goal>single</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </build>
+        </profile>
+    </profiles>
 </project>
 
