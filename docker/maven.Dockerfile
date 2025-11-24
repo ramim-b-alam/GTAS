@@ -1,4 +1,4 @@
-FROM maven:latest
+FROM maven:3.8.7-eclipse-temurin-11
 
 # VOLUME [ "/project" ]
 # COPY gtas-parent /project
