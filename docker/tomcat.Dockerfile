@@ -1,4 +1,4 @@
-FROM tomcat
+FROM tomcat:9.0.75-jdk11-openjdk-slim
 
 COPY ./gtas-parent/gtas-webapp/target/gtas.war /usr/local/tomcat/webapps/gtas.war
 COPY ./gtas-parent/gtas-job-scheduler-war/target/gtas-job-scheduler.war /usr/local/tomcat/webapps/gtas-job-scheduler.war
